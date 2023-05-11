@@ -26,7 +26,48 @@ class Solution {
             else i++;
         }
         
-        sort(arr.begin() + l, arr.begin() + r + 1);
+        i = l;
+        j = mid + 1;
+        int k = l;
+        int *v = new int[r + 1];
+
+        while(i <= mid and j <= r)
+        {
+            if(arr[i] < arr[j])
+            {
+                v[k] = arr[i];
+                k++;
+                i++;
+            } 
+            else 
+            {
+                v[k] = arr[j];
+                k++;
+                j++;
+            }
+        }
+
+        if(i > mid)
+        {
+            while(j <= r)
+            {
+                v[k] = arr[j];
+                j++;
+                k++;
+            }
+        }
+        else
+        {
+            while(i <= mid)
+            {
+                v[k] = arr[i];
+                i++;
+                k++;
+            }
+        }
+
+        for(int k = l; k <= r; k++) arr[k] = v[k];  
+        delete []v;
     }
     
     void mergeSort(int l, int r, vector<int> &arr, int &ans)
