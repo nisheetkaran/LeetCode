@@ -6,28 +6,18 @@ using namespace std;
 class Solution {
 public:
 	
-	bool check(int start, vector<int> adj[], int col[])
+	bool dfs(int start, int color, vector<int> adj[], int col[])
 	{
-	    queue<int> q;
-	    q.push(start);
-	    col[start] = 0;
-	    
-	     while(!q.empty())
+	    col[start] = color;
+	    for(auto x: adj[start])
 	    {
-	        int node = q.front();
-	        q.pop();
-	        
-	        for(auto x: adj[node])
-	        {
-	            if(col[x] == -1)
-	            {
-	                col[x] = !col[node];
-	                q.push(x);
-	            }
-	            else if(col[x] != !col[node]) return false;
-	        }
+	        if(col[x] == -1)
+	       {
+	           if(!dfs(x, !color, adj, col)) return false;
+	       }
+	       else if(col[x] == col[start]) return false;
 	    }
-	    
+	   
 	    return true;
 	}
 	
@@ -39,7 +29,7 @@ public:
 	    {
 	        if(col[i] == -1)
 	        {
-	            if(!check(i, adj, col)) return false;
+	            if(!dfs(i, 0, adj, col)) return false;
 	        }
 	    }
 	    
