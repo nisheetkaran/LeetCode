@@ -42,7 +42,7 @@ class Solution {
         vector<int> dis(N);
         for(int i = 0; i < N; i++)
         {
-            dis[i] = 1e9;
+            dis[i] = 1e4;
         }
         
         dis[0] = 0;
@@ -65,7 +65,7 @@ class Solution {
         
         for(int i = 0; i < N; i++)
         {
-            if(dis[i] == 1e9) dis[i] = -1;
+            if(dis[i] == 1e4) dis[i] = -1;
         }
         
         return dis;
