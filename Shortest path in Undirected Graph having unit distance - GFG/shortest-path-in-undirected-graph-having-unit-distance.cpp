@@ -21,7 +21,7 @@ class Solution {
         }
         
         vector<int> dis(N);
-        for(int i = 0; i < N; i++) dis[i] = 1e8;
+        for(int i = 0; i < N; i++) dis[i] = 1e9;
         dis[src] = 0;
         
         queue<pair<int, int>> q;
@@ -43,7 +43,7 @@ class Solution {
             }
         }
         
-        for(int i = 0; i < N; i++) if(dis[i] == 1e8) dis[i] = -1;
+        for(int i = 0; i < N; i++) if(dis[i] == 1e9) dis[i] = -1;
         return dis;
     }
 };
