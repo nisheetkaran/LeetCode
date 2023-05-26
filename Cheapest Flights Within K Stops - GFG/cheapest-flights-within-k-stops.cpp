@@ -25,7 +25,7 @@ class Solution {
             int startCost = q.front()[2];
             q.pop();
             
-            if(stop < K + 1)
+            if(stop <= K)
             {
                 for(auto x: adj[node])
                 {
