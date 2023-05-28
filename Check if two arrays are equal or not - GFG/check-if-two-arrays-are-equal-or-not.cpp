@@ -14,8 +14,8 @@ class Solution{
     //Function to check if two arrays are equal or not.
     bool check(vector<ll> A, vector<ll> B, int N) {
         
-        map<int, int> m1;
-        map<int, int> m2;
+        unordered_map<int, int> m1;
+        unordered_map<int, int> m2;
         
         
         for(int i = 0; i < N; i++)
