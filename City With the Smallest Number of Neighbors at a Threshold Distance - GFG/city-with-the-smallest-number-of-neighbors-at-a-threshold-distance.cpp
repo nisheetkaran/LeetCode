@@ -10,7 +10,7 @@ class Solution {
   public:
     int findCity(int n, int m, vector<vector<int>>& edges, int distanceThreshold) {
                      
-        vector<vector<int>> dis(n, vector<int> (n, INT_MAX));
+        vector<vector<int>> dis(n, vector<int> (n, 1e6));
         for(auto x: edges)
         {
             int u = x[0];
@@ -26,8 +26,8 @@ class Solution {
         for(int i = 0; i < n; i++)
         for(int j = 0; j < n; j++)
         {
-            if (dis[i][k] == INT_MAX || dis[k][j] == INT_MAX)
-			continue;
+//             if (dis[i][k] == INT_MAX || dis[k][j] == INT_MAX)
+// 			continue;
             dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);
         }
         
