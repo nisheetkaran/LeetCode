@@ -17,7 +17,7 @@ public:
     }
     
     //rightmost set bit mask
-    int rsbm = store & ~(store - 1);
+    int rsbm = store & (-store);
     
     int ans1 = 0;
     int ans2 = 0;
