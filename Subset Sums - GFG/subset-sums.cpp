@@ -15,10 +15,9 @@ public:
             return;
         }
         
-        sum += arr[i];
+
         help(i+1, sum, arr, N, ans);
-        sum -= arr[i];
-        help(i+1, sum, arr, N, ans);
+        help(i+1, sum + arr[i], arr, N, ans);
     }
     
     vector<int> subsetSums(vector<int> arr, int N)
